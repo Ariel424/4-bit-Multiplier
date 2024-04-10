@@ -49,7 +49,7 @@ class drv extends uvm_driver#(transaction);
  
   virtual function void build_phase(uvm_phase phase);
   super.build_phase(phase);
-    if(!uvm_config_db#(virtual mul_if)::get(this,"","mif",mif))//uvm_test_top.env.agent.drv.aif
+    if(!uvm_config_db#(virtual mul_if)::get(this,"","mif",mif))
       `uvm_error("drv","Unable to access Interface");
   endfunction
   
@@ -127,8 +127,6 @@ class sco extends uvm_scoreboard;
  
 endclass
  
-///////////////////////////////////////////////////////////////////////////
- 
 class agent extends uvm_agent;
 `uvm_component_utils(agent)
  
@@ -155,8 +153,6 @@ endfunction
  
 endclass
  
-///////////////////////////////////////////////////////////////////////
- 
 class env extends uvm_env;
 `uvm_component_utils(env)
  
@@ -180,8 +176,6 @@ endfunction
  
 endclass
  
- 
-//////////////////////////////////////////////////////////////////
 class test extends uvm_test;
 `uvm_component_utils(test)
  
@@ -206,8 +200,6 @@ phase.drop_objection(this);
 endtask
 endclass
  
- 
-////////////////////////////////////////////////////////////////////
 module tb;
  
   mul_if mif();
